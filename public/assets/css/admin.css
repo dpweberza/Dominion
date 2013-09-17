@@ -1,0 +1,82 @@
+/**
+    Body
+**/
+body {
+}
+
+
+/**
+    Sticky Footer
+**/
+html,
+body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+#footer {
+    height: 60px;
+    background-color: #333;
+    border-top: 1px solid #222;
+}
+
+#footer p {
+    margin: 15px 0;
+    color: #eee;
+}
+
+
+/**
+    Icons
+**/
+.glyphicon.highlight {
+    color: #18bc9c;
+}
+
+
+/**
+    Panels
+**/
+.panel .page-header {
+    margin-top: 0;
+    padding-bottom: 0;
+}
+
+
+/**
+    Log Viewer
+**/
+.log-message {
+    word-break: break-all;
+}
+
+
+/**
+    Data Lists
+**/
+.dl-horizontal dt {
+    width: 80px;
+}
+
+.dl-horizontal dd {
+    margin-left: 150px;
+}
+
+
+/**
+    Navigation
+**/
+/*.navbar-brand {
+    text-transform: uppercase; 
+}
+
+.navbar-default .navbar-nav>li>a {
+    text-transform: uppercase;
+}*/

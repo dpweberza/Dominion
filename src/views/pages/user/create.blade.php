@@ -1,0 +1,34 @@
+@extends('dominion::templates.admin')
+
+@section('page')
+<div class="panel-heading">
+    <strong>Users</strong>
+</div>
+{{ Form::open()}}
+<div class="panel-body">
+    <div class="page-header">
+        <h5>Create New User</h5>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" class="form-control" value="{{ Input::old('email') }}">
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="text" name="password" class="form-control" value="{{ Input::old('password') }}">
+    </div>
+    <div class="form-group">
+        <label>Role</label>
+        {{ Form::select('role_id', array('0' => 'Please Select') + $roles , Input::old('role_id'), array('class' => 'form-control')) }}
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        {{ Form::select('status_id', array('0' => 'Please Select') + $statuses, Input::old('status_id'), array('class' => 'form-control')) }}
+    </div>
+</div>
+<div class="panel-footer">
+    <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span> Submit</button>
+    <a href="{{ action('DavidWeber\Dominion\Controllers\UserController@getIndex')}}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
+</div>
+{{ Form::close()}}
+@stop

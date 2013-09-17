@@ -1,0 +1,22 @@
+{
+    "name": "david-weber/dominion",
+    "description": "A simple, clean admin package for Laravel 4 with no other dependencies.",
+    "keywords": ["laravel", "admin", "auth", "acl", "modules"],
+    "license": "Apache 2",
+    "authors": [
+        {
+            "name": "David Weber",
+            "email": "dpweberza@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "psr-0": {
+            "DavidWeber\\Dominion": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,57 @@
+Setup
+------------------------------
+Config
+    auth.php
+    'model' => 'DavidWeber\Dominion\Models\User',
+
+    app.php
+    'DavidWeber\Dominion\DominionServiceProvider',
+
+
+
+Road Map
+------------------------------
+Add Audit Log / Action Log
+
+
+
+Extending
+------------------------------
+
+Add routes to your app/routes.php
+Add modules for your routes
+Module can be per controller or action
+
+
+Access Control
+------------------------------
+User
+    Role
+        System          (Module Group: Name)
+            Modules     (Module: Name, Controller)
+            Roles       (Module: Name, Controller)
+            Users       (Module: Name, Controller)    
+
+
+
+Helpful Commands
+------------------------------
+
+    cd Dropbox\Development\xampp\htdocs\seed
+
+    composer dump-autoload
+
+    php artisan migrate:refresh
+    php artisan migrate --bench="david-weber/dominion"
+    php artisan db:seed --class="DavidWeber\Dominion\Seeders\DatabaseSeeder"
+
+
+    php artisan asset:publish --bench="david-weber/dominion"
+
+    php artisan clear-compiled 
+    php artisan ide-helper:generate
+
+
+    cd Dropbox\Development\xampp\htdocs\seed
+    php artisan migrate --bench="david-weber/dominion"
+    php artisan db:seed --class="DavidWeber\Dominion\Seeders\DatabaseSeeder"
