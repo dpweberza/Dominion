@@ -73,10 +73,11 @@ body {
 /**
     Navigation
 **/
-/*.navbar-brand {
+.navbar-brand {
     text-transform: uppercase; 
 }
 
+/*
 .navbar-default .navbar-nav>li>a {
     text-transform: uppercase;
 }*/

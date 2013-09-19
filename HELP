@@ -13,6 +13,8 @@ Road Map
 ------------------------------
 Add Audit Log / Action Log
 
+Func Tests - http://forums.laravel.io/viewtopic.php?id=10256
+
 
 
 Extending
@@ -40,6 +42,7 @@ Helpful Commands
     cd Dropbox\Development\xampp\htdocs\seed
 
     composer dump-autoload
+    composer dump-autoload --optimize
 
     php artisan migrate:refresh
     php artisan migrate --bench="david-weber/dominion"
