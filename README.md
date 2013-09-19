@@ -26,10 +26,10 @@ All feedback is welcome and appreciated.
 
 
 ###Road Map
-Unit Tests
-Functional Tests
-Auditing / Action Log
-More Coming Soon...
+* Unit Tests
+* Functional Tests
+* Auditing / Action Log
+* More Coming Soon...
 
 
 ###Getting Started
@@ -55,3 +55,11 @@ Migrations
     php artisan migrate --package="david-weber/dominion"
 Seeders
     php artisan db:seed --class="DavidWeber\Dominion\Seeders\DatabaseSeeder"
+
+
+###Extending The Admin Interface
+Coming Soon...
+
+
+###Theming The Admin Interface
+Coming Soon...
