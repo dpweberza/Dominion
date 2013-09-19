@@ -59,6 +59,15 @@ Run the following commands from your terminal / command prompt:
     
     `php artisan db:seed --class="DavidWeber\Dominion\Seeders\DatabaseSeeder"`
 
+####Admin Login
+You can now browse to http://YourServer:ServerPort/AppRoot/admin
+
+The default credentials are:
+
+Email Address: admin@dominion.com
+
+Password: password
+
 
 ###Extending The Admin Interface
 Coming Soon...
