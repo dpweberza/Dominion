@@ -60,7 +60,7 @@ class ModuleController extends DominionController
             return \Redirect::action('DavidWeber\Dominion\Controllers\ModuleController@getEdit', array('id' => $module->id))->withInput();
         } else {
             $module->update(\Input::all());
-            \Notification::success('Update module: ' . $module->name);
+            \Notification::success('Updated module: ' . $module->name);
             return \Redirect::action('DavidWeber\Dominion\Controllers\ModuleController@getIndex');
         }
     }

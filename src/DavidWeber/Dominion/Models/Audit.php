@@ -3,11 +3,10 @@
 namespace DavidWeber\Dominion\Models;
 
 /**
- * Assigned to a role and grants access to a selection of routes.
+ * Audits a user action.
  *
  * @author David Weber
  */
-class Audit extends BaseModel
-{
+class Audit extends \Eloquent {
     
 }

@@ -7,19 +7,16 @@ namespace DavidWeber\Dominion\Models;
  *
  * @author David Weber
  */
-class Module extends \Eloquent
-{
+class Module extends \Eloquent {
 
     protected $fillable = array('name', 'controller', 'module_group_id');
 
-    public function group()
-    {
+    public function group() {
         return $this->belongsTo('\DavidWeber\Dominion\Models\ModuleGroup', 'module_group_id');
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany('Role', 'role_modules');
+    public function roles() {
+        return $this->belongsToMany('Role', 'role_modules')->withTimestamps();
     }
 
 }

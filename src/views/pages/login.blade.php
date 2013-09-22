@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
                 <div class="panel-heading"><strong>Admin Login</strong></div>
                 {{ Form::open()}}
                 <div class="panel-body">

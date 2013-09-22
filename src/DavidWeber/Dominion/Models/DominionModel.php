@@ -7,11 +7,9 @@ namespace DavidWeber\Dominion\Models;
  *
  * @author David Weber
  */
-class BaseModel extends \Eloquent
-{
+class DominionModel extends \Eloquent {
 
-    public static function boot()
-    {
+    public static function boot() {
         parent::boot();
 
         // Setup event bindings...

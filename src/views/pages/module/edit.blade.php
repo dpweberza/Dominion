@@ -10,15 +10,15 @@
         <h5>Editing Module: {{ $module->name }}</h5>
     </div>
     <div class="form-group">
-        <label for="input-name">Name</label>
-        <input type="text" name="name" class="form-control" id="input-name" value="{{ Input::old('name', $module->name) }}">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control" value="{{ Input::old('name', $module->name) }}">
     </div>
     <div class="form-group">
-        <label for="input-name">Controller</label>
-        <input type="text" name="controller" class="form-control" id="input-controller" value="{{ Input::old('controller', $module->controller) }}">
+        <label>Controller</label>
+        <input type="text" name="controller" class="form-control" value="{{ Input::old('controller', $module->controller) }}">
     </div>
     <div class="form-group">
-        <label for="input-name">Group</label>
+        <label>Group</label>
         {{ Form::select('module_group_id', array('0' => 'Please Select') + $moduleGroups , Input::old('module_group_id', $module->module_group_id), array('class' => 'form-control')) }}
     </div>
 </div>

@@ -3,7 +3,8 @@
     <head>
         <title>{{Config::get('dominion::title')}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="{{URL::asset('packages/david-weber/dominion/assets/css/bootstrap.flatly.min.css')}}" rel="stylesheet"></link>
+        <link href="{{URL::asset('packages/david-weber/dominion/assets/css/bootstrap.min.css')}}" rel="stylesheet"></link>
+        <link href="{{URL::asset('packages/david-weber/dominion/assets/css/bootstrap-theme.min.css')}}" rel="stylesheet"></link>
         <link href="{{URL::asset('packages/david-weber/dominion/assets/css/admin.css')}}" rel="stylesheet"></link>
         <link href="{{URL::asset('packages/david-weber/dominion/assets/img/favicon.ico')}}" rel="icon" type="image/x-icon"></link>
     </head>

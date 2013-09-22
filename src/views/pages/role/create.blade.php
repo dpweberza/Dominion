@@ -13,6 +13,29 @@
         <label for="input-name">Name</label>
         <input type="text" name="name" class="form-control" id="input-name">
     </div>
+
+    <h5>Role Modules</h5>
+    <table class="table table-condensed table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Permission</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($modules as $module)
+            <?php $checked = false; ?>
+            <tr>
+                <td>{{ $module->id }}</td>
+                <td>{{ $module->name }}</td>
+                <td>
+                    <input type="checkbox" name="roleModules[]" value="{{ $module->id }}" @if($checked) {{'checked="checked"'}} @endif />
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 <div class="panel-footer">
     <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span> Submit</button>

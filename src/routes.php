@@ -19,6 +19,7 @@ Route::group(array('before' => 'admin'), function() {
     Route::get('/admin/roles/create', 'DavidWeber\Dominion\Controllers\RoleController@getCreate');
     Route::post('/admin/roles/create', 'DavidWeber\Dominion\Controllers\RoleController@postCreate');
     Route::get('/admin/roles/edit/{id}', 'DavidWeber\Dominion\Controllers\RoleController@getEdit');
+    Route::post('/admin/roles/edit/{id}', 'DavidWeber\Dominion\Controllers\RoleController@postEdit');
     Route::post('/admin/roles/delete/{id}', 'DavidWeber\Dominion\Controllers\RoleController@postDelete');
     Route::get('/admin/roles', 'DavidWeber\Dominion\Controllers\RoleController@getIndex');
 
