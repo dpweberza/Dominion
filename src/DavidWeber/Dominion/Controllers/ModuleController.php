@@ -9,7 +9,7 @@ use \Illuminate\Routing\Controllers\Controller;
  *
  * @author David
  */
-class ModuleController extends BaseController
+class ModuleController extends DominionController
 {
 
     public function getIndex()

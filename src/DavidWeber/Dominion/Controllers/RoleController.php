@@ -7,7 +7,7 @@ namespace DavidWeber\Dominion\Controllers;
  *
  * @author David
  */
-class RoleController extends BaseController
+class RoleController extends DominionController
 {
 
     public function getIndex()

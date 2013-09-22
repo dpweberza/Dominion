@@ -70,7 +70,11 @@ Password: password
 
 
 ###Extending The Admin Interface
-Coming Soon...
+####Modules
+1. Create a controller which extends DominionController.
+2. Create a Module Group entry via the admin GUI or with a seeder.
+3. Create the Module entry via the admin GUI or with a seeder.
+4. Assign the module to the user's role.
 
 
 ###Theming The Admin Interface

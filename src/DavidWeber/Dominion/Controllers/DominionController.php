@@ -9,7 +9,7 @@ use \Illuminate\Routing\Controllers\Controller;
  *
  * @author David
  */
-class BaseController extends Controller
+class DominionController extends Controller
 {
 
     public function __construct()

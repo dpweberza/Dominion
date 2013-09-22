@@ -2,8 +2,6 @@
 
 namespace DavidWeber\Dominion\Controllers;
 
-use \Illuminate\Routing\Controllers\Controller;
-use \Carbon\Carbon;
 use Psr\Log\LogLevel;
 
 /**
@@ -11,8 +9,7 @@ use Psr\Log\LogLevel;
  *
  * @author David
  */
-class LogController extends BaseController
-{
+class LogController extends DominionController {
 
     private static $SAPI_MAPPING = array(
         'apache' => 'Apache',
@@ -31,8 +28,7 @@ class LogController extends BaseController
         LogLevel::DEBUG => 'label-primary'
     );
 
-    public function getIndex()
-    {
+    public function getIndex() {
         $logs = array();
         foreach (self::$SAPI_MAPPING as $sapi => $human) {
             $logs[$sapi]['sapi'] = $human;
@@ -52,8 +48,7 @@ class LogController extends BaseController
         return \View::make('dominion::pages.log.index', array('logs' => $logs));
     }
 
-    public function getView()
-    {
+    public function getView() {
         $entries = array();
         $pattern = "/\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\].*/";
         $date = \Input::get('date');
@@ -94,8 +89,7 @@ class LogController extends BaseController
      * Get the log levels from psr/log
      * @return type
      */
-    private function getLogLevels()
-    {
+    private function getLogLevels() {
         $class = new \ReflectionClass(new LogLevel);
         return $constants = $class->getConstants();
     }

@@ -7,7 +7,7 @@ namespace DavidWeber\Dominion\Controllers;
  *
  * @author David
  */
-class ModuleGroupController extends BaseController {
+class ModuleGroupController extends DominionController {
 
     public function getIndex() {
         $moduleGroups = \DavidWeber\Dominion\Models\ModuleGroup::with('modules')->get();
