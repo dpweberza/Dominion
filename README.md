@@ -75,6 +75,7 @@ Password: password
 2. Create a Module Group entry via the admin GUI or with a seeder.
 3. Create the Module entry via the admin GUI or with a seeder.
 4. Assign the module to the user's role.
+5. Views should extend `'dominion::templates.admin'`
 
 
 ###Theming The Admin Interface

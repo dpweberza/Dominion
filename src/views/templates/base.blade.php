@@ -6,6 +6,11 @@
         @foreach(Config::get('dominion::asset-css') as $css)
             <link href="{{URL::asset($css)}}" rel="stylesheet"></link>
         @endforeach
+        @if(isset($additionalCss))
+            @foreach($additionalCss as $css)
+                <link href="{{URL::asset($css)}}" rel="stylesheet"></link>
+            @endforeach
+        @endif
         <link href="{{Config::get('dominion::asset-favicon')}}" rel="icon" type="image/x-icon"></link>
     </head>
     <body>
@@ -37,5 +42,10 @@
         </div>
         <script src="{{URL::asset('packages/david-weber/dominion/assets/js/jquery-1.10.2.min.js')}}"></script>
         <script src="{{URL::asset('packages/david-weber/dominion/assets/js/bootstrap.min.js')}}"></script>
+        @if(isset($additionalJs))
+            @foreach($additionalJs as $js)
+                <script src="{{URL::asset($js)}}"></script>
+            @endforeach
+        @endif
     </body>
 </html>
