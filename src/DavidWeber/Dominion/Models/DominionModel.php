@@ -19,6 +19,10 @@ class DominionModel extends \Eloquent {
         return $this->status_id == 1;
     }
 
+    public function scopeActive($query) {
+        return $query->where('status_id', '=', 1);
+    }
+
     public static function boot() {
         parent::boot();
 

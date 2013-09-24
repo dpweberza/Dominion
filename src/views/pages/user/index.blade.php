@@ -24,6 +24,11 @@
                     <td>{{ $user->getStatus() }}</td>
                 </tr>
             @endforeach
+            @if($users->isEmpty())
+                <tr>
+                    <td colspan="3">No users.</td>
+                </tr>
+            @endif
         </tbody>
     </table>
 </div>

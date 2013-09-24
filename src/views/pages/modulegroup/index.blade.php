@@ -33,6 +33,11 @@
                     </td>
                 </tr>
             @endforeach
+            @if($moduleGroups->isEmpty())
+                <tr>
+                    <td colspan="5">No module groups.</td>
+                </tr>
+            @endif
         </tbody>
     </table>
 </div>

@@ -35,6 +35,11 @@
                     </td>
                 </tr>
             @endforeach
+            @if($modules->isEmpty())
+                <tr>
+                    <td colspan="6">No modules.</td>
+                </tr>
+            @endif
         </tbody>
     </table>
 </div>

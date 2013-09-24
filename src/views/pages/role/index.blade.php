@@ -31,6 +31,11 @@
                     </td>
                 </tr>
             @endforeach
+            @if($roles->isEmpty())
+                <tr>
+                    <td colspan="4">No roles.</td>
+                </tr>
+            @endif
         </tbody>
     </table>
 </div>
