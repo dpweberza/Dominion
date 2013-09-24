@@ -7,7 +7,7 @@ namespace DavidWeber\Dominion\Models;
  *
  * @author David Weber
  */
-class Role extends \Eloquent {
+class Role extends DominionModel {
 
     protected $fillable = array('name');
 

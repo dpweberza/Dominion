@@ -7,14 +7,12 @@ namespace DavidWeber\Dominion\Models;
  *
  * @author David Weber
  */
-class ModuleGroup extends \Eloquent
-{
+class ModuleGroup extends DominionModel {
 
     protected $table = 'module_groups';
     protected $fillable = array('name', 'icon_class');
 
-    public function modules()
-    {
+    public function modules() {
         return $this->hasMany('\DavidWeber\Dominion\Models\Module');
     }
 

@@ -15,6 +15,7 @@
                 <th>Name</th>
                 <th>Controller</th>
                 <th>Group</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,6 +26,7 @@
                     <td>{{ $module->name }}</td>
                     <td>{{ $module->controller }}</td>
                     <td>{{ $module->group->name }}</td>
+                    <td>{{ $module->getStatus() }}</td>
                     <td>
                         {{ Form::open(array('action' => array('DavidWeber\Dominion\Controllers\ModuleController@postDelete', $module->id))) }}
                             <a href="{{action('DavidWeber\Dominion\Controllers\ModuleController@getEdit', array('id' => $module->id))}}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> Edit</a>

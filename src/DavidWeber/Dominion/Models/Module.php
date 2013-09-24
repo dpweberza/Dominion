@@ -7,7 +7,7 @@ namespace DavidWeber\Dominion\Models;
  *
  * @author David Weber
  */
-class Module extends \Eloquent {
+class Module extends DominionModel {
 
     protected $fillable = array('name', 'controller', 'module_group_id');
 

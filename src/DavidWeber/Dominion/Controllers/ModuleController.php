@@ -16,13 +16,14 @@ class ModuleController extends DominionController {
 
     public function getCreate() {
         $moduleGroups = \DavidWeber\Dominion\Models\ModuleGroup::all()->lists('name', 'id');
+        $statuses = \DavidWeber\Dominion\Models\User::$statuses;
 
-        return \View::make('dominion::pages.module.create', array('moduleGroups' => $moduleGroups));
+        return \View::make('dominion::pages.module.create', array('moduleGroups' => $moduleGroups, 'statuses' => $statuses));
     }
 
     public function postCreate() {
         $validator = \Validator::make(
-                        \Input::all(), array('name' => 'required|min:5', 'controller' => 'required|min:5|class', 'module_group_id' => 'required|integer|not_in:0'), array('class' => 'The :attribute is not a valid class.')
+                \Input::all(), array('name' => 'required|min:5', 'controller' => 'required|min:5|class', 'module_group_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0'), array('class' => 'The :attribute is not a valid class.')
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
@@ -37,15 +38,16 @@ class ModuleController extends DominionController {
     public function getEdit($id) {
         $module = \DavidWeber\Dominion\Models\Module::find($id);
         $moduleGroups = \DavidWeber\Dominion\Models\ModuleGroup::all()->lists('name', 'id');
+        $statuses = \DavidWeber\Dominion\Models\User::$statuses;
 
-        return \View::make('dominion::pages.module.edit', array('module' => $module, 'moduleGroups' => $moduleGroups));
+        return \View::make('dominion::pages.module.edit', array('module' => $module, 'moduleGroups' => $moduleGroups, 'statuses' => $statuses));
     }
 
     public function postEdit($id) {
         $module = \DavidWeber\Dominion\Models\Module::find($id);
 
         $validator = \Validator::make(
-                        \Input::all(), array('name' => 'required|min:5', 'controller' => 'required|min:5|class', 'module_group_id' => 'required|integer|not_in:0'), array('class' => 'The :attribute is not a valid class.')
+                \Input::all(), array('name' => 'required|min:5', 'controller' => 'required|min:5|class', 'module_group_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0'), array('class' => 'The :attribute is not a valid class.')
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
