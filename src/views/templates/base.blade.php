@@ -11,7 +11,7 @@
                 <link href="{{URL::asset($css)}}" rel="stylesheet"></link>
             @endforeach
         @endif
-        <link href="{{Config::get('dominion::asset-favicon')}}" rel="icon" type="image/x-icon"></link>
+        <link href="{{URL::asset(Config::get('dominion::asset-favicon'))}}" rel="icon" type="image/x-icon"></link>
     </head>
     <body>
         <div id="wrap">
