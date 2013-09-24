@@ -37,6 +37,11 @@
                     <td>{{ $module->controller }}</td>
                 </tr>
             @endforeach
+            @if($moduleGroup->modules->isEmpty())
+                <tr>
+                    <td colspan="3">No modules.</td>
+                </tr>
+            @endif
         </tbody>
     </table>
 </div>

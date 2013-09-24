@@ -9,7 +9,7 @@ namespace DavidWeber\Dominion\Models;
  */
 class Module extends DominionModel {
 
-    protected $fillable = array('name', 'controller', 'module_group_id');
+    protected $fillable = array('name', 'controller', 'module_group_id', 'status_id');
 
     public function group() {
         return $this->belongsTo('\DavidWeber\Dominion\Models\ModuleGroup', 'module_group_id');
