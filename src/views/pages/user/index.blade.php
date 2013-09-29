@@ -15,6 +15,7 @@
                 <th>Email Address</th>
                 <th>Status</th>
                 <th>Create Date</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,11 +25,17 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->getStatus() }}</td>
                     <td>{{ $user->getCreateDate() }}</td>
+                    <td>
+                        {{ Form::open(array('action' => array('DavidWeber\Dominion\Controllers\UserController@postDelete', $user->id))) }}
+                            <a href="{{action('DavidWeber\Dominion\Controllers\UserController@getEdit', array('id' => $user->id))}}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                            <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                        {{ Form::close() }}
+                    </td>
                 </tr>
             @endforeach
             @if($users->isEmpty())
                 <tr>
-                    <td colspan="3">No users.</td>
+                    <td colspan="5">No users.</td>
                 </tr>
             @endif
         </tbody>

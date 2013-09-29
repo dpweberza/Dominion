@@ -37,4 +37,13 @@ class User extends DominionModel implements UserInterface, RemindableInterface {
         return $this->email;
     }
 
+    //
+    // Getters and Setters
+    //
+
+    public function setPasswordAttribute($value) {
+        if (!empty($value))
+            $this->attributes['password'] = \Hash::make($value);
+    }
+
 }

@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'email' => 'admin@dominion.com',
-            'password' => \Hash::make('password'),
+            'password' => 'password',
             'status_id' => 1,
             'role_id' => 1
         ));

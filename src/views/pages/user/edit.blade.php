@@ -7,19 +7,23 @@
 {{ Form::open()}}
 <div class="panel-body">
     <div class="page-header">
-        <h5>Editing Module: {{ $module->name }}</h5>
+        <h5>Editing User: {{ $user->email }}</h5>
     </div>
     <div class="form-group">
-        <label>Name</label>
-        <input type="text" name="name" class="form-control" value="{{ Input::old('name', $module->name) }}">
+        <label>Email</label>
+        <input type="text" name="email" class="form-control" value="{{ Input::old('email', $user->email) }}">
     </div>
     <div class="form-group">
-        <label>Controller</label>
-        <input type="text" name="controller" class="form-control" value="{{ Input::old('controller', $module->controller) }}">
+        <label>Password</label>
+        <input type="text" name="password" class="form-control" value="{{ Input::old('password') }}">
     </div>
     <div class="form-group">
-        <label for="input-name">Group</label>
-        {{ Form::select('module_group_id', array('0' => 'Please Select') + $moduleGroups , Input::old('module_group_id', $module->module_group_id), array('class' => 'form-control')) }}
+        <label>Role</label>
+        {{ Form::select('role_id', array('0' => 'Please Select') + $roles , Input::old('role_id', $user->role_id), array('class' => 'form-control')) }}
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        {{ Form::select('status_id', array('0' => 'Please Select') + $statuses, Input::old('status_id', $user->status_id), array('class' => 'form-control')) }}
     </div>
 </div>
 <div class="panel-footer">
