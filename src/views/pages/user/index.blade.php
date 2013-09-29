@@ -13,6 +13,7 @@
             <tr>
                 <th>ID</th>
                 <th>Email Address</th>
+                <th>Role</th>
                 <th>Status</th>
                 <th>Create Date</th>
                 <th>Actions</th>
@@ -23,6 +24,7 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>{{ $user->role->name }}</td>
                     <td>{{ $user->getStatus() }}</td>
                     <td>{{ $user->getCreateDate() }}</td>
                     <td>
