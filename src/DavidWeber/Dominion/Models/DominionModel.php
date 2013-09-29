@@ -15,6 +15,14 @@ class DominionModel extends \Eloquent {
         return self::$statuses[$this->status_id];
     }
 
+    public function getCreateDate() {
+        return $this->created_at->format('d M Y H:i');
+    }
+
+    public function getUpdateDate() {
+        return $this->updated_at->format('d M Y H:i');
+    }
+
     public function isActive() {
         return $this->status_id == 1;
     }

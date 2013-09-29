@@ -14,6 +14,7 @@
                 <th>ID</th>
                 <th>Email Address</th>
                 <th>Status</th>
+                <th>Create Date</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->getStatus() }}</td>
+                    <td>{{ $user->getCreateDate() }}</td>
                 </tr>
             @endforeach
             @if($users->isEmpty())
@@ -31,6 +33,7 @@
             @endif
         </tbody>
     </table>
+    {{ $users->links() }}
 </div>
 <div class="panel-footer">
     <a href="{{ action('DavidWeber\Dominion\Controllers\UserController@getCreate') }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Create New User</a>

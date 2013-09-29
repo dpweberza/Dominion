@@ -40,6 +40,7 @@
             @endif
         </tbody>
     </table>
+    {{ $moduleGroups->links() }}
 </div>
 <div class="panel-footer">
     <a href="{{action('DavidWeber\Dominion\Controllers\ModuleGroupController@getCreate')}}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Create New Module Group</a>

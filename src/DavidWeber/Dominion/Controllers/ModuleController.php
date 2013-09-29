@@ -10,7 +10,7 @@ namespace DavidWeber\Dominion\Controllers;
 class ModuleController extends DominionController {
 
     public function getIndex() {
-        $modules = \DavidWeber\Dominion\Models\Module::with('group')->get();
+        $modules = \DavidWeber\Dominion\Models\Module::with('group')->paginate(\Config::get('dominion::setting-page-size'));
         return \View::make('dominion::pages.module.index', array('modules' => $modules));
     }
 

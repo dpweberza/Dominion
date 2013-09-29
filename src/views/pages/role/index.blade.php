@@ -38,6 +38,7 @@
             @endif
         </tbody>
     </table>
+    {{ $roles->links() }}
 </div>
 <div class="panel-footer">
     <a href="{{ action('DavidWeber\Dominion\Controllers\RoleController@getCreate') }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Create New Role</a>

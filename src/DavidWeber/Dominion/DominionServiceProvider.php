@@ -4,8 +4,7 @@ namespace DavidWeber\Dominion;
 
 use Illuminate\Support\ServiceProvider;
 
-class DominionServiceProvider extends ServiceProvider
-{
+class DominionServiceProvider extends ServiceProvider {
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -19,8 +18,8 @@ class DominionServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
+        \View::addNamespace('dominion', array(app_path() . '/views/packages/david-weber/dominion'));
         $this->package('david-weber/dominion');
 
         include __DIR__ . '/../../routes.php';
@@ -33,8 +32,7 @@ class DominionServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         $this->app['notification'] = $this->app->share(function($app) {
             return new \DavidWeber\Dominion\Util\Notification\Notification;
         });
@@ -50,8 +48,7 @@ class DominionServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
-    {
+    public function provides() {
         return array();
     }
 

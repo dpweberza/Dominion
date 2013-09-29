@@ -10,7 +10,7 @@ namespace DavidWeber\Dominion\Controllers;
 class RoleController extends DominionController {
 
     public function getIndex() {
-        $roles = \DavidWeber\Dominion\Models\Role::all();
+        $roles = \DavidWeber\Dominion\Models\Role::paginate(\Config::get('dominion::setting-page-size'));
         return \View::make('dominion::pages.role.index', array('roles' => $roles));
     }
 
