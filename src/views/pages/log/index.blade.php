@@ -2,7 +2,7 @@
 
 @section('page')
 <div class="panel-heading">
-    <strong>Log Viewer</strong>
+    <strong>Log Viewer</strong> <span class="pull-right">{{ App::environment() }}</span>
 </div>
 <div class="panel-body">
     <div class="page-header">
