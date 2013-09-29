@@ -13,7 +13,6 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,7 +21,6 @@
                 <tr>
                     <td>{{ $role->id }}</td>
                     <td>{{ $role->name }}</td>
-                    <td>{{ $role->status_id }}</td>
                     <td>
                         {{ Form::open(array('action' => array('DavidWeber\Dominion\Controllers\RoleController@postDelete', $role->id))) }}
                             <a href="{{action('DavidWeber\Dominion\Controllers\RoleController@getEdit', array('id' => $role->id))}}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
