@@ -12,6 +12,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  */
 class User extends DominionModel implements UserInterface, RemindableInterface {
 
+    public static $rules = array('email' => 'required|email|unique:users', 'password' => 'required|min:6', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
     protected $hidden = array('password');
     protected $fillable = array('email', 'password', 'status_id', 'role_id');
 

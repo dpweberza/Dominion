@@ -24,7 +24,7 @@ class UserController extends DominionController {
 
     public function postCreate() {
         $validator = \Validator::make(
-                \Input::all(), array('email' => 'required|email|unique:users', 'password' => 'required|min:6', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0')
+                \Input::all(), \DavidWeber\Dominion\Models\User::$rules
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
@@ -48,7 +48,7 @@ class UserController extends DominionController {
         $user = \DavidWeber\Dominion\Models\User::find($id);
 
         $validator = \Validator::make(
-                \Input::all(), array('email' => 'required|email|unique:users,' . $id, 'password' => 'min:6', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0')
+                \Input::all(), \DavidWeber\Dominion\Models\User::$rules
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
