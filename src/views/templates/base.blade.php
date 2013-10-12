@@ -3,6 +3,7 @@
     <head>
         <title>{{Config::get('dominion::text-title')}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{{URL::asset(Config::get('dominion::asset-favicon'))}}" rel="icon" type="image/x-icon"></link>
         @foreach(Config::get('dominion::asset-css') as $css)
             <link href="{{URL::asset($css)}}" rel="stylesheet"></link>
         @endforeach
@@ -11,7 +12,7 @@
                 <link href="{{URL::asset($css)}}" rel="stylesheet"></link>
             @endforeach
         @endif
-        <link href="{{URL::asset(Config::get('dominion::asset-favicon'))}}" rel="icon" type="image/x-icon"></link>
+        <script src="{{URL::asset('packages/david-weber/dominion/assets/js/jquery-1.10.2.min.js')}}"></script>
     </head>
     <body>
         <div id="wrap">
@@ -40,7 +41,6 @@
                 <p class="text-muted pull-right">{{Config::get('dominion::text-footer')}}</p>
             </div>
         </div>
-        <script src="{{URL::asset('packages/david-weber/dominion/assets/js/jquery-1.10.2.min.js')}}"></script>
         <script src="{{URL::asset('packages/david-weber/dominion/assets/js/bootstrap.min.js')}}"></script>
         @if(isset($additionalJs))
             @foreach($additionalJs as $js)
