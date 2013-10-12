@@ -12,9 +12,9 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  */
 class User extends DominionModel implements UserInterface, RemindableInterface {
 
-    public static $rules = array('email' => 'required|email|unique:users', 'password' => 'required|min:6', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
+    public static $rules = array('username' => 'required|unique:users', 'password' => 'required|min:6', 'email_address' => 'email', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
     protected $hidden = array('password');
-    protected $fillable = array('email', 'password', 'status_id', 'role_id');
+    protected $fillable = array('username', 'password', 'email_address', 'status_id', 'role_id');
 
     //
     // Relations
@@ -35,7 +35,7 @@ class User extends DominionModel implements UserInterface, RemindableInterface {
     }
 
     public function getReminderEmail() {
-        return $this->email;
+        return $this->email_address;
     }
 
     //

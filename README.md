@@ -64,7 +64,7 @@ You can now browse to http://YourServer:ServerPort/AppRoot/admin
 
 The default credentials are:
 
-Email Address: admin@dominion.com
+Username: admin
 
 Password: password
 

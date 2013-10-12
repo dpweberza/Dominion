@@ -16,12 +16,12 @@
                     </div>
                     @endforeach
                     <div class="form-group">
-                        <label for="input-email">Email address</label>
-                        <input type="email" name="email" class="form-control" id="input-email" placeholder="Email Address">
+                        <label>Username</label>
+                        <input type="username" name="username" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="input-password">Password</label>
-                        <input type="password" name="password" class="form-control" id="input-password" placeholder="Password">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control">
                     </div>
                 </div>
                 <div class="panel-footer">

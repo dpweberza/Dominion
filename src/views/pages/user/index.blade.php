@@ -12,6 +12,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Username</th>
                 <th>Email Address</th>
                 <th>Role</th>
                 <th>Status</th>
@@ -23,7 +24,8 @@
             @foreach($users as $user)
                 <tr>
                     <td>{{ $user->id }}</td>
-                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->username }}</td>
+                    <td>{{ $user->email_address }}</td>
                     <td>{{ $user->role->name }}</td>
                     <td>{{ $user->getStatus() }}</td>
                     <td>{{ $user->getCreateDate() }}</td>

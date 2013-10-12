@@ -10,12 +10,16 @@
         <h5>Create New User</h5>
     </div>
     <div class="form-group">
-        <label>Email</label>
-        <input type="text" name="email" class="form-control" value="{{ Input::old('email') }}">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control" value="{{ Input::old('username') }}">
     </div>
     <div class="form-group">
         <label>Password</label>
         <input type="text" name="password" class="form-control" value="{{ Input::old('password') }}">
+    </div>
+    <div class="form-group">
+        <label>Email Address</label>
+        <input type="text" name="email_address" class="form-control" value="{{ Input::old('email_address') }}">
     </div>
     <div class="form-group">
         <label>Role</label>

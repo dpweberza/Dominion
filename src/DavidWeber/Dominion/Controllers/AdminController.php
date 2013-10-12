@@ -23,7 +23,7 @@ class AdminController extends DominionController
     public function postLogin()
     {
         $credentials = array(
-            'email' => \Input::get('email'),
+            'username' => \Input::get('username'),
             'password' => \Input::get('password')
         );
         $authenticated = \Auth::attempt($credentials);
