@@ -27,7 +27,7 @@
     </div>
     <div class="form-group">
         <label>Status</label>
-        {{ Form::select('status_id', array('0' => 'Please Select') + $statuses, Input::old('status_id'), array('class' => 'form-control')) }}
+        {{ Form::select('status_id', array('0' => 'Please Select') + $statuses, Input::old('status_id', 1), array('class' => 'form-control')) }}
     </div>
 </div>
 <div class="panel-footer">
