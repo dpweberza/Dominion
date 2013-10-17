@@ -24,7 +24,7 @@
                     <td>
                         {{ Form::open(array('action' => array('DavidWeber\Dominion\Controllers\RoleController@postDelete', $role->id))) }}
                             <a href="{{action('DavidWeber\Dominion\Controllers\RoleController@getEdit', array('id' => $role->id))}}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-                            <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                            <button type="submit" class="btn btn-xs btn-danger" onclick="return confirm('Please confirm deletion!')"><span class="glyphicon glyphicon-trash"></span> Delete</button>
                         {{ Form::close() }}
                     </td>
                 </tr>

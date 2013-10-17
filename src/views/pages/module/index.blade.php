@@ -30,7 +30,7 @@
                     <td>
                         {{ Form::open(array('action' => array('DavidWeber\Dominion\Controllers\ModuleController@postDelete', $module->id))) }}
                             <a href="{{action('DavidWeber\Dominion\Controllers\ModuleController@getEdit', array('id' => $module->id))}}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-                            <button type="submit" class="btn btn-xs btn-danger" onclick="return confirm('Confirm deletion?')"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                            <button type="submit" class="btn btn-xs btn-danger" onclick="return confirm('Please confirm deletion!')"><span class="glyphicon glyphicon-trash"></span> Delete</button>
                         {{ Form::close() }}
                     </td>
                 </tr>

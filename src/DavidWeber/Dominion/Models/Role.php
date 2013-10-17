@@ -15,4 +15,10 @@ class Role extends DominionModel {
         return $this->belongsToMany('DavidWeber\Dominion\Models\Module', 'role_modules')->withTimestamps();
     }
 
+    public function delete() {
+        \DB::table('role_modules')->where('role_id', '=', $this->id)->delete();
+
+        return parent::delete();
+    }
+
 }

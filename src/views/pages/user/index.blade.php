@@ -32,7 +32,7 @@
                     <td>
                         {{ Form::open(array('action' => array('DavidWeber\Dominion\Controllers\UserController@postDelete', $user->id))) }}
                             <a href="{{action('DavidWeber\Dominion\Controllers\UserController@getEdit', array('id' => $user->id))}}" class="btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-                            <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                            <button type="submit" onclick="return confirm('Please confirm deletion!')" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
                         {{ Form::close() }}
                     </td>
                 </tr>

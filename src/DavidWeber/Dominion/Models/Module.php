@@ -19,4 +19,10 @@ class Module extends DominionModel {
         return $this->belongsToMany('Role', 'role_modules')->withTimestamps();
     }
 
+    public function delete() {
+        \DB::table('role_modules')->where('module_id', '=', $this->id)->delete();
+
+        return parent::delete();
+    }
+
 }

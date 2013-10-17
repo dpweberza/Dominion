@@ -28,7 +28,7 @@
                     <td>
                         {{ Form::open(array('action' => array('DavidWeber\Dominion\Controllers\ModuleGroupController@postDelete', $moduleGroup->id))) }}
                             <a href="{{action('DavidWeber\Dominion\Controllers\ModuleGroupController@getView', array('id' => $moduleGroup->id))}}" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-eye-open"></span> View</a>
-                            <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                            <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash" onclick="return confirm('Please confirm deletion!')"></span> Delete</button>
                         {{ Form::close() }}
                     </td>
                 </tr>
