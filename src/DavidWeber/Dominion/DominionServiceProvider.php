@@ -7,13 +7,6 @@ use Illuminate\Support\ServiceProvider;
 class DominionServiceProvider extends ServiceProvider {
 
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-    /**
      * Bootstrap the application events.
      *
      * @return void
@@ -33,6 +26,8 @@ class DominionServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
+        $this->app->bind('DavidWeber\Dominion\Models\UserRepositoryInterface', 'DavidWeber\Dominion\Models\UserRepository');
+
         $this->app['notification'] = $this->app->share(function($app) {
             return new \DavidWeber\Dominion\Util\Notification\Notification;
         });
@@ -41,15 +36,6 @@ class DominionServiceProvider extends ServiceProvider {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
             $loader->alias('Notification', 'DavidWeber\Dominion\Facades\Notification');
         });
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides() {
-        return array();
     }
 
 }

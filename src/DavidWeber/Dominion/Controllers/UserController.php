@@ -2,6 +2,8 @@
 
 namespace DavidWeber\Dominion\Controllers;
 
+use DavidWeber\Dominion\Models\UserRepositoryInterface as UserRepository;
+
 /**
  * User controller
  *
@@ -9,52 +11,52 @@ namespace DavidWeber\Dominion\Controllers;
  */
 class UserController extends DominionController {
 
-    public function __construct(\DavidWeber\Dominion\Models\User $model) {
-        $this->model = $model;
+    public function __construct(UserRepository $repo) {
+        $this->repo = $repo;
 
         parent::__construct();
     }
 
     public function getIndex() {
         \View::share('moduleGroups', \DavidWeber\Dominion\Models\ModuleGroup::all());
-        $users = $this->model->paginate(\Config::get('dominion::setting-page-size'));
+        $users = $this->repo->paginate(\Config::get('dominion::setting-page-size'));
         return \View::make('dominion::pages.user.index', array('users' => $users));
     }
 
     public function getCreate() {
         $roles = \DavidWeber\Dominion\Models\Role::all()->lists('name', 'id');
-        $statuses = $this->model->getStatuses();
+        $statuses = $this->repo->getStatuses();
 
         return \View::make('dominion::pages.user.create', array('roles' => $roles, 'statuses' => $statuses));
     }
 
     public function postCreate() {
         $validator = \Validator::make(
-                \Input::all(), $this->model->getValidationRules()
+                \Input::all(), $this->repo->getValidationRules()
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
             return \Redirect::action('DavidWeber\Dominion\Controllers\UserController@getCreate')->withInput();
         } else {
-            $user = $this->model->create(\Input::all());
+            $user = $this->repo->create(\Input::all());
             \Notification::success('Created user: ' . $user->username);
             return \Redirect::action('DavidWeber\Dominion\Controllers\UserController@getIndex');
         }
     }
 
     public function getEdit($id) {
-        $user = $this->model->find($id);
+        $user = $this->repo->find($id);
         $roles = \DavidWeber\Dominion\Models\Role::all()->lists('name', 'id');
-        $statuses = $this->model->getStatuses();
+        $statuses = $this->repo->getStatuses();
 
         return \View::make('dominion::pages.user.edit', array('user' => $user, 'roles' => $roles, 'statuses' => $statuses));
     }
 
     public function postEdit($id) {
-        $user = $this->model->find($id);
+        $user = $this->repo->find($id);
 
         $validator = \Validator::make(
-                \Input::all(), $this->model->getValidationRules()
+                \Input::all(), $this->repo->getValidationRules()
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
@@ -67,7 +69,7 @@ class UserController extends DominionController {
     }
 
     public function postDelete($id) {
-        $user = $this->model->find($id);
+        $user = $this->repo->find($id);
         $user->delete();
 
         \Notification::success('Deleted user: ' . $user->username);
