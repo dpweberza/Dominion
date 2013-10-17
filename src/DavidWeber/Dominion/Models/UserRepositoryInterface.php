@@ -16,4 +16,8 @@ interface UserRepositoryInterface {
     public function create($attributes);
 
     public function paginate($perPage = null, $columns = array());
+
+    public function getStatuses();
+    
+    public function getValidationRules();
 }

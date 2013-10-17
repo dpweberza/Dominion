@@ -25,4 +25,12 @@ class UserRepository implements UserRepositoryInterface {
         return User::paginate($perPage, $columns);
     }
 
+    public function getStatuses() {
+        return User::$statuses;
+    }
+
+    public function getValidationRules() {
+        return User::$rules;
+    }
+
 }
