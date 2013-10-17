@@ -12,6 +12,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Username</th>
                         <th>Email Address</th>
                         <th>Status</th>
                         <th>Create Date</th>
@@ -22,14 +23,15 @@
                     @foreach($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->username }}</td>
+                        <td>{{ $user->email_address }}</td>
                         <td>{{ $user->getStatus() }}</td>
                         <td>{{ $user->getCreateDate() }}</td>
                     </tr>
                     @endforeach
                     @if($users->isEmpty())
                     <tr>
-                        <td colspan="4">No users.</td>
+                        <td colspan="5">No users.</td>
                     </tr>
                     @endif
                 </tbody>

@@ -9,7 +9,16 @@ namespace DavidWeber\Dominion\Models;
  */
 class DominionModel extends \Eloquent {
 
-    public static $statuses = array(1 => 'Active', 2 => 'Inactive');
+    public static $rules = array();
+    public static $statuses = array(1 => 'Active', 2 => 'Inactive'); // TODO remove statics
+
+    public function getStatuses() {
+        return self::$statuses;
+    }
+
+    public function getValidationRules() {
+        return self::$rules;
+    }
 
     public function getStatus() {
         return self::$statuses[$this->status_id];

@@ -9,62 +9,68 @@ namespace DavidWeber\Dominion\Controllers;
  */
 class UserController extends DominionController {
 
+    public function __construct(\DavidWeber\Dominion\Models\User $model) {
+        $this->model = $model;
+
+        parent::__construct();
+    }
+
     public function getIndex() {
         \View::share('moduleGroups', \DavidWeber\Dominion\Models\ModuleGroup::all());
-        $users = \DavidWeber\Dominion\Models\User::paginate(\Config::get('dominion::setting-page-size'));
+        $users = $this->model->paginate(\Config::get('dominion::setting-page-size'));
         return \View::make('dominion::pages.user.index', array('users' => $users));
     }
 
     public function getCreate() {
         $roles = \DavidWeber\Dominion\Models\Role::all()->lists('name', 'id');
-        $statuses = \DavidWeber\Dominion\Models\User::$statuses;
+        $statuses = $this->model->getStatuses();
 
         return \View::make('dominion::pages.user.create', array('roles' => $roles, 'statuses' => $statuses));
     }
 
     public function postCreate() {
         $validator = \Validator::make(
-                \Input::all(), \DavidWeber\Dominion\Models\User::$rules
+                \Input::all(), $this->model->getValidationRules()
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
             return \Redirect::action('DavidWeber\Dominion\Controllers\UserController@getCreate')->withInput();
         } else {
-            $user = \DavidWeber\Dominion\Models\User::create(\Input::all());
-            \Notification::success('Created user: ' . $user->email);
+            $user = $this->model->create(\Input::all());
+            \Notification::success('Created user: ' . $user->username);
             return \Redirect::action('DavidWeber\Dominion\Controllers\UserController@getIndex');
         }
     }
 
     public function getEdit($id) {
-        $user = \DavidWeber\Dominion\Models\User::find($id);
+        $user = $this->model->find($id);
         $roles = \DavidWeber\Dominion\Models\Role::all()->lists('name', 'id');
-        $statuses = \DavidWeber\Dominion\Models\User::$statuses;
+        $statuses = $this->model->getStatuses();
 
         return \View::make('dominion::pages.user.edit', array('user' => $user, 'roles' => $roles, 'statuses' => $statuses));
     }
 
     public function postEdit($id) {
-        $user = \DavidWeber\Dominion\Models\User::find($id);
+        $user = $this->model->find($id);
 
         $validator = \Validator::make(
-                \Input::all(), \DavidWeber\Dominion\Models\User::$rules
+                \Input::all(), $this->model->getValidationRules()
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
             return \Redirect::action('DavidWeber\Dominion\Controllers\UserController@getEdit', array('id' => $user->id))->withInput();
         } else {
             $user->update(\Input::all());
-            \Notification::success('Updated user: ' . $user->email);
+            \Notification::success('Updated user: ' . $user->username);
             return \Redirect::action('DavidWeber\Dominion\Controllers\UserController@getIndex');
         }
     }
 
     public function postDelete($id) {
-        $user = \DavidWeber\Dominion\Models\User::find($id);
+        $user = $this->model->find($id);
         $user->delete();
 
-        \Notification::success('Deleted user: ' . $user->email);
+        \Notification::success('Deleted user: ' . $user->username);
         return \Redirect::action('DavidWeber\Dominion\Controllers\UserController@getIndex');
     }
 
