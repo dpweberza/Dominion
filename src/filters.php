@@ -14,7 +14,7 @@ Route::filter('admin', function() {
     // Determine the requested module
     $requestedModule = null;
     foreach (DavidWeber\Dominion\Models\Module::all() as $module) {
-        if (starts_with(Route::getCurrentRoute()->getAction(), $module->controller)) {
+        if (starts_with(Route::current()->getActionName(), $module->controller)) {
             $requestedModule = $module;
         }
     }

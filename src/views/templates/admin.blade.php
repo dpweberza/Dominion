@@ -9,7 +9,7 @@
         <ul class="dropdown-menu">
             @foreach($userModules as $module)
                 @if($module->module_group_id == $moduleGroup->id)
-                <li class="{{starts_with(Route::getCurrentRoute()->getAction(), $module->controller) ? 'active' : ''}}"><a href="{{action($module->controller . '@getIndex')}}">{{ $module->name}}</a></li>
+                <li class="{{starts_with(Route::current()->getActionName(), $module->controller) ? 'active' : ''}}"><a href="{{action($module->controller . '@getIndex')}}">{{ $module->name}}</a></li>
                 @endif
             @endforeach
         </ul>

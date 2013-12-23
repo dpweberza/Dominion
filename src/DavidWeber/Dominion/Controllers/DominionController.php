@@ -2,18 +2,16 @@
 
 namespace DavidWeber\Dominion\Controllers;
 
-use \Illuminate\Routing\Controllers\Controller;
+use Illuminate\Routing\Controller;
 
 /**
  * Abstract admin package controller
  *
  * @author David
  */
-class DominionController extends Controller
-{
+class DominionController extends Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         $user = \Auth::user();
         if ($user) {
             $userModules = \Auth::user()->role->modules->sortBy(function($module) {
