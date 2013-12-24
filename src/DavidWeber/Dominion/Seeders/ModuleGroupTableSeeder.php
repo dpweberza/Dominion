@@ -10,11 +10,9 @@ use DavidWeber\Dominion\Models\ModuleGroup;
  *
  * @author David Weber
  */
-class ModuleGroupTableSeeder extends Seeder
-{
+class ModuleGroupTableSeeder extends Seeder {
 
-    public function run()
-    {
+    public function run() {
         \DB::table('module_groups')->delete();
 
         ModuleGroup::create(array(

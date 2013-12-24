@@ -10,11 +10,9 @@ use \DavidWeber\Dominion\Models\Module;
  *
  * @author David Weber
  */
-class ModuleTableSeeder extends Seeder
-{
+class ModuleTableSeeder extends Seeder {
 
-    public function run()
-    {
+    public function run() {
         \DB::table('modules')->delete();
 
         Module::create(array(
@@ -49,6 +47,13 @@ class ModuleTableSeeder extends Seeder
             'id' => 5,
             'name' => 'Module Groups',
             'controller' => 'DavidWeber\Dominion\Controllers\ModuleGroupController',
+            'status_id' => 1,
+            'module_group_id' => 1
+        ));
+        Module::create(array(
+            'id' => 6,
+            'name' => 'Select Groups',
+            'controller' => 'DavidWeber\Dominion\Controllers\SelectGroupController',
             'status_id' => 1,
             'module_group_id' => 1
         ));

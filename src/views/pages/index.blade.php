@@ -19,7 +19,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if ($users = DavidWeber\Dominion\Models\User::orderBy('created_at', 'desc')->limit(5)->get()) @endif
                     @foreach($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>

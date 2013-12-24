@@ -11,16 +11,14 @@ use \DavidWeber\Dominion\Models\Module;
  *
  * @author David Weber
  */
-class RoleTableSeeder extends Seeder
-{
+class RoleTableSeeder extends Seeder {
 
-    public function run()
-    {
+    public function run() {
         \DB::table('roles')->delete();
 
         $role = Role::create(array(
-            'id' => 1,
-            'name' => 'Administrator'
+                    'id' => 1,
+                    'name' => 'Administrator'
         ));
 
         // Add all modules to the admin role
@@ -30,8 +28,8 @@ class RoleTableSeeder extends Seeder
         }
 
         $role = Role::create(array(
-            'id' => 2,
-            'name' => 'User'
+                    'id' => 2,
+                    'name' => 'User'
         ));
     }
 

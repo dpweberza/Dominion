@@ -7,21 +7,18 @@ namespace DavidWeber\Dominion\Controllers;
  *
  * @author David
  */
-class AdminController extends DominionController
-{
+class AdminController extends DominionController {
 
-    public function getIndex()
-    {
-        return \View::make('dominion::pages.index');
+    public function getIndex() {
+        $users = \DavidWeber\Dominion\Models\User::orderBy('created_at', 'desc')->limit(5)->get();
+        return \View::make('dominion::pages.index', array('users' => $users));
     }
 
-    public function getLogin()
-    {
+    public function getLogin() {
         return \View::make('dominion::pages.login');
     }
 
-    public function postLogin()
-    {
+    public function postLogin() {
         $credentials = array(
             'username' => \Input::get('username'),
             'password' => \Input::get('password')
@@ -35,8 +32,7 @@ class AdminController extends DominionController
         }
     }
 
-    public function getLogout()
-    {
+    public function getLogout() {
         \Auth::logout();
         return \Redirect::to('admin/login');
     }

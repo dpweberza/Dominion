@@ -29,7 +29,7 @@ class RoleController extends DominionController {
             return \Redirect::action('DavidWeber\Dominion\Controllers\RoleController@getCreate')->withInput();
         } else {
             $role = \DavidWeber\Dominion\Models\Role::create(\Input::all());
-            foreach (\Input::get('roleModules') as $moduleId)
+            foreach (\Input::get('roleModules', array()) as $moduleId)
                 $role->modules()->attach($moduleId);
 
             \Notification::success('Created role: ' . $role->name);
@@ -56,7 +56,7 @@ class RoleController extends DominionController {
         } else {
             $role->update(\Input::all());
             $role->modules()->detach();
-            foreach (\Input::get('roleModules') as $moduleId)
+            foreach (\Input::get('roleModules', array()) as $moduleId)
                 $role->modules()->attach($moduleId);
 
             \Notification::success('Updated role: ' . $role->name);
