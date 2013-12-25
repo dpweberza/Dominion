@@ -2,7 +2,7 @@
     "name": "david-weber/dominion",
     "description": "A simple, clean admin package for Laravel 4 with no other dependencies.",
     "keywords": ["laravel", "admin", "auth", "acl", "modules"],
-    "license": "Apache 2",
+    "license": "MIT",
     "authors": [
         {
             "name": "David Weber",
@@ -15,8 +15,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "1.*",
-        "phpunit/phpunit": "3.7.*",
-        "codeception/codeception": "1.6.1.1"
+        "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
         "psr-0": {
