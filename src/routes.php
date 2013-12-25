@@ -38,6 +38,13 @@ Route::group(array('before' => 'admin'), function() {
     Route::get('/admin/modulegroups', 'DavidWeber\Dominion\Controllers\ModuleGroupController@getIndex');
     Route::get('/admin/modulegroups/view/{id}', 'DavidWeber\Dominion\Controllers\ModuleGroupController@getView');
 
+    // Select Groups
+    Route::get('/admin/selectgroups/create', 'DavidWeber\Dominion\Controllers\SelectGroupController@getCreate');
+    Route::post('/admin/selectgroups/create', 'DavidWeber\Dominion\Controllers\SelectGroupController@postCreate');
+    Route::post('/admin/selectgroups/delete/{id}', 'DavidWeber\Dominion\Controllers\SelectGroupController@postDelete');
+    Route::get('/admin/selectgroups', 'DavidWeber\Dominion\Controllers\SelectGroupController@getIndex');
+    Route::get('/admin/selectgroups/view/{id}', 'DavidWeber\Dominion\Controllers\SelectGroupController@getView');
+
     // Log Viewer
     Route::get('/admin/logs', 'DavidWeber\Dominion\Controllers\LogController@getIndex');
     Route::get('/admin/logs/view', 'DavidWeber\Dominion\Controllers\LogController@getView');
