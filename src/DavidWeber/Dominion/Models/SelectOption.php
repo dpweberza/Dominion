@@ -2,7 +2,7 @@
 
 namespace DavidWeber\Dominion\Models;
 
-class SelectOption extends Eloquent {
+class SelectOption extends DominionModel {
 
     protected $table = 'select_options';
     public $timestamps = true;
@@ -13,7 +13,7 @@ class SelectOption extends Eloquent {
     protected $hidden = array('select_group_id');
 
     public function group() {
-        return $this->hasOne('SelectGroup');
+        return $this->hasOne('DavidWeber\Dominion\Models\SelectGroup');
     }
 
 }
