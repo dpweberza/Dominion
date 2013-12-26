@@ -11,11 +11,11 @@
     </div>
     <div class="form-group">
         <label for="input-name">Name</label>
-        <input type="text" name="name" class="form-control" id="input-name" value="{{ Input::old('name') }}">
+        <input type="text" name="name" class="form-control" value="{{ Input::old('name') }}">
     </div>
     <div class="form-group">
         <label for="input-name">Controller</label>
-        <input type="text" name="controller" class="form-control" id="input-controller" value="{{ Input::old('controller') }}">
+        <input type="text" name="controller" class="form-control" value="{{ Input::old('controller') }}">
     </div>
     <div class="form-group">
         <label for="input-name">Group</label>
