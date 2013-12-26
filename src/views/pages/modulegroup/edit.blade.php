@@ -7,7 +7,7 @@
 {{ Form::open()}}
 <div class="panel-body">
     <div class="page-header">
-        <h5>Editing Module Group: {{ $moduleGroup->name }}</h5>>
+        <h5>Editing Module Group: {{ $moduleGroup->name }}</h5>
     </div>
     <div class="form-group">
         <label for="input-name">Name</label>
