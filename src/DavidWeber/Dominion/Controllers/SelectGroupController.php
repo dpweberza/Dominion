@@ -34,8 +34,8 @@ class SelectGroupController extends DominionController {
             \Notification::error($validator->messages()->all());
             return \Redirect::action('DavidWeber\Dominion\Controllers\SelectGroupController@getCreate')->withInput();
         } else {
-            $role = \DavidWeber\Dominion\Models\SelectGroup::create(\Input::all());
-            \Notification::success('Created select group: ' . $role->name);
+            $selectGroup = \DavidWeber\Dominion\Models\SelectGroup::create(\Input::all());
+            \Notification::success('Created select group: ' . $selectGroup->name);
             return \Redirect::action('DavidWeber\Dominion\Controllers\SelectGroupController@getIndex');
         }
     }
@@ -43,6 +43,25 @@ class SelectGroupController extends DominionController {
     public function getView($id) {
         $selectGroup = \DavidWeber\Dominion\Models\SelectGroup::find($id);
         return \View::make('dominion::pages.selectgroup.view', array('selectGroup' => $selectGroup));
+    }
+
+    public function getAddOption($id) {
+        $selectGroup = \DavidWeber\Dominion\Models\SelectGroup::find($id);
+        return \View::make('dominion::pages.selectgroup.addoption', array('selectGroup' => $selectGroup));
+    }
+
+    public function postAddOption($id) {
+        $validator = \Validator::make(
+                        \Input::all(), array('name' => 'required|min:4', 'value' => 'required', 'select_group_id' => 'required|integer|not_in:0')
+        );
+        if ($validator->fails()) {
+            \Notification::error($validator->messages()->all());
+            return \Redirect::action('DavidWeber\Dominion\Controllers\SelectGroupController@getAddOption')->withInput();
+        } else {
+            $selectOption = \DavidWeber\Dominion\Models\SelectOption::create(\Input::all());
+            \Notification::success('Created select option: ' . $selectOption->name);
+            return \Redirect::action('DavidWeber\Dominion\Controllers\SelectGroupController@getView', array('id' => $id));
+        }
     }
 
 }

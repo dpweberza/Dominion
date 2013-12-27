@@ -5,13 +5,18 @@
     <strong>Select Groups</strong>
 </div>
 {{ Form::open()}}
+<input type="hidden" name="select_group_id" value="{{ $selectGroup->id }}">
 <div class="panel-body">
     <div class="page-header">
-        <h5>Create New Select Group</h5>
+        <h5>Create New Select Option</h5>
     </div>
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" name="name" class="form-control" value="{{ Input::old('name') }}">
+    </div>
+    <div class="form-group">
+        <label for="value">Name</label>
+        <input type="text" name="value" class="form-control"  value="{{ Input::old('value') }}">
     </div>
 </div>
 <div class="panel-footer">

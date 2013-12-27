@@ -10,8 +10,8 @@
         <h5>Create New Role</h5>
     </div>
     <div class="form-group">
-        <label for="input-name">Name</label>
-        <input type="text" name="name" class="form-control" id="input-name">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control" value="{{ Input::old('name') }}">
     </div>
 
     <h5>Role Modules</h5>

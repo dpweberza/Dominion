@@ -18,7 +18,7 @@
         </dl>
     </div>
 
-    <h5>Modules</h5>
+    <h5>Select Options</h5>
     <table class="table table-condensed table-striped table-bordered">
         <thead>
             <tr>
@@ -44,6 +44,7 @@
     </table>
 </div>
 <div class="panel-footer">
+    <a href="{{action('DavidWeber\Dominion\Controllers\SelectGroupController@getAddOption', array('id' => $selectGroup->id))}}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Create New Select Option</a>
     <a href="{{action('DavidWeber\Dominion\Controllers\SelectGroupController@getIndex')}}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
 </div>
 @stop

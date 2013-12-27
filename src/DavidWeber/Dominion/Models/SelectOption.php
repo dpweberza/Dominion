@@ -8,7 +8,7 @@ class SelectOption extends DominionModel {
     public $timestamps = true;
     protected $softDelete = false;
     protected $guarded = array('select_group_id');
-    protected $fillable = array('name', 'value');
+    protected $fillable = array('name', 'value', 'select_group_id');
     protected $visible = array('name', 'value');
     protected $hidden = array('select_group_id');
 

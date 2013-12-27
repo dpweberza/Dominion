@@ -46,6 +46,8 @@ Route::group(array('before' => 'admin'), function() {
     Route::post('/admin/selectgroups/delete/{id}', 'DavidWeber\Dominion\Controllers\SelectGroupController@postDelete');
     Route::get('/admin/selectgroups', 'DavidWeber\Dominion\Controllers\SelectGroupController@getIndex');
     Route::get('/admin/selectgroups/view/{id}', 'DavidWeber\Dominion\Controllers\SelectGroupController@getView');
+    Route::get('/admin/selectoptions/create/{id}', 'DavidWeber\Dominion\Controllers\SelectGroupController@getAddOption');
+    Route::post('/admin/selectoptions/create/{id}', 'DavidWeber\Dominion\Controllers\SelectGroupController@postAddOption');
 
     // Log Viewer
     Route::get('/admin/logs', 'DavidWeber\Dominion\Controllers\LogController@getIndex');
