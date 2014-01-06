@@ -39,6 +39,14 @@ class User extends DominionModel implements UserInterface, RemindableInterface {
     }
 
     //
+    // Display Methods
+    //
+
+    public function getFullName() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    //
     // Getters and Setters
     //
 

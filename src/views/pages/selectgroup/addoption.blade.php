@@ -15,7 +15,7 @@
         <input type="text" name="name" class="form-control" value="{{ Input::old('name') }}">
     </div>
     <div class="form-group">
-        <label for="value">Name</label>
+        <label for="value">Value</label>
         <input type="text" name="value" class="form-control"  value="{{ Input::old('value') }}">
     </div>
 </div>

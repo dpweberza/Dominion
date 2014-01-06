@@ -13,6 +13,7 @@
             <tr>
                 <th>ID</th>
                 <th>Username</th>
+                <th>Full Name</th>
                 <th>Email Address</th>
                 <th>Role</th>
                 <th>Status</th>
@@ -25,7 +26,7 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->username }}</td>
-                    <td>{{ $user->email_address }}</td>
+                    <td>{{ $user->getFullName() }}</td>
                     <td>{{ $user->role->name }}</td>
                     <td>{{ $user->getStatus() }}</td>
                     <td>{{ $user->getCreateDate() }}</td>
@@ -39,7 +40,7 @@
             @endforeach
             @if($users->isEmpty())
                 <tr>
-                    <td colspan="5">No users.</td>
+                    <td colspan="8">No users.</td>
                 </tr>
             @endif
         </tbody>

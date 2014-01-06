@@ -18,6 +18,14 @@
         <input type="text" name="password" class="form-control" value="{{ Input::old('password') }}">
     </div>
     <div class="form-group">
+        <label>First Name</label>
+        <input type="text" name="first_name" class="form-control" value="{{ Input::old('first_name', $user->first_name) }}">
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" name="last_name" class="form-control" value="{{ Input::old('last_name', $user->last_name) }}">
+    </div>
+    <div class="form-group">
         <label>Email Address</label>
         <input type="text" name="email_address" class="form-control" value="{{ Input::old('email_address', $user->email_address) }}">
     </div>

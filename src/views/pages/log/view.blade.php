@@ -22,6 +22,11 @@
                 <td><span class="log-message">{{ $entry['header'] }}</span></td>
             </tr>
             @endforeach
+            @if(empty($entries))
+            <tr>
+                <td colspan="2">No log entries.</td>
+            </tr>
+            @endif
         </tbody>
     </table>
 </div>
