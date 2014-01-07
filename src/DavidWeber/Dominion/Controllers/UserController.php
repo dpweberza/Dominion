@@ -32,7 +32,7 @@ class UserController extends DominionController {
 
     public function postCreate() {
         $validator = \Validator::make(
-                \Input::all(), $this->repo->getValidationRules()
+                        \Input::all(), $this->repo->getCreateRules()
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
@@ -54,15 +54,18 @@ class UserController extends DominionController {
 
     public function postEdit($id) {
         $user = $this->repo->find($id);
+        $newUsername = \Input::get('username');
+        $isNewUsername = $newUsername != $user->username;
 
         $validator = \Validator::make(
-                \Input::all(), $this->repo->getValidationRules()
+                        \Input::except($isNewUsername ? : '', 'username'), $this->repo->getEditRules()
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
             return \Redirect::action('DavidWeber\Dominion\Controllers\UserController@getEdit', array('id' => $user->id))->withInput();
         } else {
-            $user->update(\Input::all());
+            $user->update(\Input::except($isNewUsername ? '' : 'username'));
+
             \Notification::success('Updated user: ' . $user->username);
             return \Redirect::action('DavidWeber\Dominion\Controllers\UserController@getIndex');
         }

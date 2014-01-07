@@ -18,6 +18,14 @@ interface UserRepositoryInterface {
     public function paginate($perPage = null, $columns = array());
 
     public function getStatuses();
-    
-    public function getValidationRules();
+
+    /**
+     * Creation validation rules
+     */
+    public function getCreateRules();
+
+    /**
+     * Editing validation rules
+     */
+    public function getEditRules();
 }

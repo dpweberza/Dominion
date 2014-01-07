@@ -9,7 +9,8 @@ namespace DavidWeber\Dominion\Models;
  */
 class DominionModel extends \Eloquent {
 
-    public static $rules = array();
+    public static $createRules = array();
+    public static $editRules = array();
     public static $statuses = array(1 => 'Active', 2 => 'Inactive'); // TODO remove statics
 
     public function getStatuses() {

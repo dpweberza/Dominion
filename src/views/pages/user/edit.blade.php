@@ -7,7 +7,7 @@
 {{ Form::open()}}
 <div class="panel-body">
     <div class="page-header">
-        <h5>Editing User: {{ $user->email }}</h5>
+        <h5>Editing User: {{ $user->username }}</h5>
     </div>
     <div class="form-group">
         <label>Username</label>

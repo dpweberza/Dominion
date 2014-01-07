@@ -18,6 +18,7 @@ Route::filter('admin', function() {
             $requestedModule = $module;
         }
     }
+    \View::share('requestedModule', $requestedModule);
 
     // Check module access rights
     if ($requestedModule != null) {

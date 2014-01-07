@@ -29,8 +29,12 @@ class UserRepository implements UserRepositoryInterface {
         return User::$statuses;
     }
 
-    public function getValidationRules() {
-        return User::$rules;
+    public function getCreateRules() {
+        return User::$createRules;
+    }
+
+    public function getEditRules() {
+        return User::$editRules;
     }
 
 }

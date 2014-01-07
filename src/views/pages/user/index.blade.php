@@ -27,6 +27,7 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->getFullName() }}</td>
+                    <td>{{ $user->email_address }}</td>
                     <td>{{ $user->role->name }}</td>
                     <td>{{ $user->getStatus() }}</td>
                     <td>{{ $user->getCreateDate() }}</td>

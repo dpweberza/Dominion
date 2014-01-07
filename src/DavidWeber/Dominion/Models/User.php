@@ -12,9 +12,10 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  */
 class User extends DominionModel implements UserInterface, RemindableInterface {
 
-    public static $rules = array('username' => 'required|unique:users', 'password' => 'required|min:6', 'email_address' => 'email', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
+    public static $createRules = array('username' => 'required|unique:users|min:4', 'password' => 'required|min:6', 'email_address' => 'email', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
+    public static $editRules = array('username' => 'unique:users|min:4', 'password' => 'min:6', 'email_address' => 'email', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
     protected $hidden = array('password');
-    protected $fillable = array('username', 'password', 'email_address', 'status_id', 'role_id');
+    protected $fillable = array('username', 'password', 'first_name', 'last_name', 'email_address', 'status_id', 'role_id');
 
     //
     // Relations

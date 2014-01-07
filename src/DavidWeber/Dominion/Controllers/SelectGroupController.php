@@ -40,6 +40,21 @@ class SelectGroupController extends DominionController {
         }
     }
 
+    public function postEdit($id) {
+        $selectGroup = \DavidWeber\Dominion\Models\SelectGroup::find($id);
+        $validator = \Validator::make(
+                        \Input::all(), array('name' => 'required|min:4')
+        );
+        if ($validator->fails()) {
+            \Notification::error($validator->messages()->all());
+            return \Redirect::action('DavidWeber\Dominion\Controllers\SelectGroupController@getView', array('id' => $id, 'tab' => 'tab-edit'))->withInput();
+        } else {
+            $selectGroup->update(\Input::all());
+            \Notification::success('Updated select group: ' . $selectGroup->name);
+            return \Redirect::action('DavidWeber\Dominion\Controllers\SelectGroupController@getView', array('id' => $id))->withInput();
+        }
+    }
+
     public function getView($id) {
         $selectGroup = \DavidWeber\Dominion\Models\SelectGroup::find($id);
         return \View::make('dominion::pages.selectgroup.view', array('selectGroup' => $selectGroup));
@@ -56,7 +71,7 @@ class SelectGroupController extends DominionController {
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
-            return \Redirect::action('DavidWeber\Dominion\Controllers\SelectGroupController@getAddOption')->withInput();
+            return \Redirect::action('DavidWeber\Dominion\Controllers\SelectGroupController@getAddOption', array('id' => $id, 'tab' => 'tab-edit'))->withInput();
         } else {
             $selectOption = \DavidWeber\Dominion\Models\SelectOption::create(\Input::all());
             \Notification::success('Created select option: ' . $selectOption->name);
