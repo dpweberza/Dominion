@@ -9,6 +9,8 @@ namespace DavidWeber\Dominion\Models;
  */
 class Module extends DominionModel {
 
+    public static $createRules = array('name' => 'required|min:5', 'controller' => 'required|min:5|class', 'module_group_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
+    public static $editRules = array('name' => 'required|min:5', 'controller' => 'required|min:5|class', 'module_group_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
     protected $fillable = array('name', 'controller', 'module_group_id', 'status_id');
 
     public function group() {

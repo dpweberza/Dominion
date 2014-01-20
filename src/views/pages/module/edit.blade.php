@@ -21,6 +21,10 @@
         <label>Group</label>
         {{ Form::select('module_group_id', array('0' => 'Please Select') + $moduleGroups , Input::old('module_group_id', $module->module_group_id), array('class' => 'form-control')) }}
     </div>
+    <div class="form-group">
+        <label>Status</label>
+        {{ Form::select('status_id', array('0' => 'Please Select') + $statuses, Input::old('status_id', $module->status_id), array('class' => 'form-control')) }}
+    </div>
 </div>
 <div class="panel-footer">
     <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-ok"></span> Submit</button>

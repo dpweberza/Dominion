@@ -23,7 +23,7 @@ class ModuleController extends DominionController {
 
     public function postCreate() {
         $validator = \Validator::make(
-                \Input::all(), array('name' => 'required|min:5', 'controller' => 'required|min:5|class', 'module_group_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0'), array('class' => 'The :attribute is not a valid class.')
+                        \Input::all(), \DavidWeber\Dominion\Models\Module::$createRules, array('class' => 'The :attribute is not a valid class.')
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
@@ -47,7 +47,7 @@ class ModuleController extends DominionController {
         $module = \DavidWeber\Dominion\Models\Module::find($id);
 
         $validator = \Validator::make(
-                \Input::all(), array('name' => 'required|min:5', 'controller' => 'required|min:5|class', 'module_group_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0'), array('class' => 'The :attribute is not a valid class.')
+                        \Input::all(), \DavidWeber\Dominion\Models\Module::$editRules, array('class' => 'The :attribute is not a valid class.')
         );
         if ($validator->fails()) {
             \Notification::error($validator->messages()->all());
