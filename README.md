@@ -33,30 +33,37 @@ All feedback is welcome and appreciated.
 
 
 ###Getting Started
-####Configuration    
+####Configuration
 1. Add the package to the require array in the file /composer.json:
 
     `"david-weber/dominion": "dev-master"`
+
 2. Change the model value in the file /app/config/auth.php to the following:
 
     `'DavidWeber\Dominion\Models\User',`
+
 3. Add the following string to the providers array in the file /app/config/app.php:
 
     `'DavidWeber\Dominion\DominionServiceProvider',`
-4. Change the title, footer and logo in the file /app/config/packages/david-weber/dominion/config.php
-    
+
 
 ####Installation
 Run the following commands from your terminal / command prompt:
 
-1. Publish Assets
+1. Publish Config
+
+	`php artisan config:publish david-weber/dominion`
+
+2. Publish Assets
 
     `php artisan asset:publish "david-weber/dominion"`
-2. Run Migrations
-    
+
+3. Run Migrations
+
     `php artisan migrate --package="david-weber/dominion"`
-3. Run Seeders
-    
+
+4. Run Seeders
+
     `php artisan db:seed --class="DavidWeber\Dominion\Seeders\DatabaseSeeder"`
 
 ####Admin Login
@@ -67,6 +74,9 @@ The default credentials are:
 Username: admin
 
 Password: password
+
+###Customization
+1. Change the title, footer and logo in the file /app/config/packages/david-weber/dominion/config.php
 
 
 ###Extending The Admin Interface
