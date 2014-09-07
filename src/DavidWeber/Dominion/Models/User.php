@@ -12,48 +12,60 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  */
 class User extends DominionModel implements UserInterface, RemindableInterface {
 
-    public static $createRules = array('username' => 'required|unique:users|min:4', 'password' => 'required|min:6', 'email_address' => 'email', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
-    public static $editRules = array('username' => 'unique:users|min:4', 'password' => 'min:6', 'email_address' => 'email', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
-    protected $hidden = array('password');
-    protected $fillable = array('username', 'password', 'first_name', 'last_name', 'email_address', 'status_id', 'role_id');
+	public static $createRules = array('username' => 'required|unique:users|min:4', 'password' => 'required|min:6', 'email_address' => 'email', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
+	public static $editRules = array('username' => 'unique:users|min:4', 'password' => 'min:6', 'email_address' => 'email', 'role_id' => 'required|integer|not_in:0', 'status_id' => 'required|integer|not_in:0');
+	protected $hidden = array('password');
+	protected $fillable = array('username', 'password', 'first_name', 'last_name', 'email_address', 'status_id', 'role_id');
 
-    //
-    // Relations
-    //
+	//
+	// Relations
+	//
      public function role() {
-        return $this->belongsTo('DavidWeber\Dominion\Models\Role');
-    }
+		return $this->belongsTo('DavidWeber\Dominion\Models\Role');
+	}
 
-    //
-    // Auth functions
-    //
+	//
+	// Auth functions
+	//
     public function getAuthIdentifier() {
-        return $this->getKey();
-    }
+		return $this->getKey();
+	}
 
-    public function getAuthPassword() {
-        return $this->password;
-    }
+	public function getAuthPassword() {
+		return $this->password;
+	}
 
-    public function getReminderEmail() {
-        return $this->email_address;
-    }
+	public function getReminderEmail() {
+		return $this->email_address;
+	}
 
-    //
-    // Display Methods
-    //
+	public function getRememberToken() {
+		return $this->remember_token;
+	}
+
+	public function setRememberToken($value) {
+		$this->remember_token = $value;
+	}
+
+	public function getRememberTokenName() {
+		return 'remember_token';
+	}
+
+	//
+	// Display Methods
+	//
 
     public function getFullName() {
-        return $this->first_name . ' ' . $this->last_name;
-    }
+		return $this->first_name . ' ' . $this->last_name;
+	}
 
-    //
-    // Getters and Setters
-    //
+	//
+	// Getters and Setters
+	//
 
     public function setPasswordAttribute($value) {
-        if (!empty($value))
-            $this->attributes['password'] = \Hash::make($value);
-    }
+		if (!empty($value))
+			$this->attributes['password'] = \Hash::make($value);
+	}
 
 }
