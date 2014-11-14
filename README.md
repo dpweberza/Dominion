@@ -1,6 +1,8 @@
 Dominion
 ========
 
+<h3>NOTICE: Unfortunately I will no longer be maintaining this repo.</h3>
+
 A WIP admin package for Laravel 4 that has no dependencies other than Laravel 4.
 I would not call this production ready just yet, I am still finishing up some of the core modules.
 
